@@ -7,6 +7,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 import StackScreen from "./screens/StackScreen";
+import calculadora from "./screens/calculadora";
+import notice from "./screens/notice";
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -24,6 +26,21 @@ function MyStack() {
             <HomeStackNavigator.Screen
                 name="Stack"
                 component={StackScreen}
+                options={{
+                    headerBackTitleVisible: false,
+                }}
+            />
+            <HomeStackNavigator.Screen
+                name="Calculator"
+                component={calculadora}
+                options={{
+                    headerBackTitleVisible: false,
+                }}
+
+            />
+            <HomeStackNavigator.Screen
+                name="Notice"
+                component={notice}
                 options={{
                     headerBackTitleVisible: false,
                 }}
@@ -65,6 +82,16 @@ function MyTabs() {
                 ),
             }}
         />
+        <Tab.Screen     
+            name="Notice" 
+            component={notice}
+            options={{
+                tabBarLabel: 'Notice',
+                tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="newspaper" color={color} size={30} />
+                ),
+            }}
+        />  
     </Tab.Navigator>
     );
 }
