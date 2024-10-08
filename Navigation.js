@@ -5,10 +5,11 @@ import { NavigationContainer } from "@react-navigation/native";
 
 //screens
 import HomeScreen from "./screens/HomeScreen";
-import SettingsScreen from "./screens/SettingsScreen";
+import SettingsScreen from "./screens/Video";
 import StackScreen from "./screens/StackScreen";
 import calculadora from "./screens/calculadora";
 import notice from "./screens/notice";
+import colores from "./screens/colores";
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -45,7 +46,15 @@ function MyStack() {
                     headerBackTitleVisible: false,
                 }}
             />
-        </HomeStackNavigator.Navigator>
+            <HomeStackNavigator.Screen
+                name="colores"
+                component={colores}
+                options={{
+                    headerBackTitleVisible: false,
+                }}
+            />
+
+</HomeStackNavigator.Navigator>
     )
 }   
 
@@ -73,10 +82,10 @@ function MyTabs() {
             }}
         />
         <Tab.Screen 
-            name="Settings" 
+            name="video" 
             component={SettingsScreen}
             options={{
-                tabBarLabel: 'Settings',
+                tabBarLabel: 'Video',
                 tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="brightness-5" color={color} size={30} />
                 ),
@@ -92,6 +101,17 @@ function MyTabs() {
                 ),
             }}
         />  
+        <Tab.Screen
+            name="colores"
+            component={colores}
+            options={{
+                tabBarLabel: 'Colores',
+                tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="account" color={color} size={30} />
+                ),
+            }}  
+        />
+
     </Tab.Navigator>
     );
 }
